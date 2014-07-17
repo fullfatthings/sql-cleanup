@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * Implements hook_drush_command().
+ */
 function sql_cleanup_drush_command() {
   $items['sql-drop-database'] = array(
     'description' => 'Drop the sites database',
@@ -13,6 +16,9 @@ function sql_cleanup_drush_command() {
 }
 
 
+/**
+ * SQL Drop Database command callback.
+ */
 function drush_sql_cleanup_sql_drop_database() {
   if (!drush_confirm(dt('Do you really want to continue?'))) {
     return drush_user_abort();
@@ -25,7 +31,5 @@ function drush_sql_cleanup_sql_drop_database() {
   $sql = implode(' ', $sql);
 
   $db_su = drush_sql_su($db_spec);
-  drush_print($sql);
-
   return _drush_sql_query($sql, $db_su);
 }
