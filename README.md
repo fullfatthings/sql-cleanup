@@ -12,6 +12,6 @@ drush sql-drop-database
 This will drop the database for the site. Feel free to add `@` aliases or `@sites` to drop all site DB's.
 
 
-## Instalation
+## Installation
 
 Simply checkout this repo into ~/.drush (or any of the drush locations for picking up plugins).
